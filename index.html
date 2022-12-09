@@ -1,29 +1,63 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-        <title>パスワード生成アプリ</title>
-        <link rel="stylesheet" href="style.css"/>
-    </head>
 
-    <body>
-      <header>
-        <h1><a href="">パスワード生成アプリ</a></h1>
-      </header>
-      
-      <p>ランダムなパスワードを生成するアプリです。</p>
-      <p>桁数を入力し、ボタンをクリックして下さい。</p>
-      <br>
-      <p>桁数：<input type="number" value="8" id="len" min="1"></p>
-      <p><button onclick="random()" class="btn btn-lg btn-primary">生成する</button></p>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>パスワード生成アプリ</title>
+    <style>
+      a {
+        text-decoration: none;
+        color: blue;
+      }
 
-      <p id="result"></p>
+      .container {
+        max-width: 700px;
+        margin: 0 auto;
+        text-align: center;
+      }
 
-      <script src="script.js"></script>
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-    </body>
+      .wrap {
+        margin: 30px;
+      }
+
+      #length {
+        width: 60px;
+      }
+
+      #output {
+        font-size: 30px;
+        font-weight: bold;
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1><a href="">パスワード生成アプリ</a></h1>
+      <form onsubmit="return false;">
+        <div class="wrap">
+          <input name="item" type="checkbox" id="lower_case" value="小文字" checked>
+          <label for="lower_case">小文字</label>
+          <input name="item" type="checkbox" id="upper_case" value="大文字">
+          <label for="upper_case">大文字</label>
+          <input name="item" type="checkbox" id="number" value="数字">
+          <label for="number">数字</label>
+          <input name="item" type="checkbox" id="symbol" value="記号">
+          <label for="symbol">記号</label>
+        </div>
+        <div class="wrap">
+          <label for="length">桁数：</label>
+          <input id="length" type="number" value="8" min="4" max="16">
+        </div>
+        <button onclick="random()">パスワードを作る</button>
+      </form>
+      <p id="output"></p>
+    </div>
+
+    <script src="main.js"></script>
+
+  </body>
+
 </html>
